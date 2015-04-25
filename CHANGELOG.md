@@ -1,3 +1,3 @@
-## 1.0.0 (20 August 2014)
+## 0.1 (25 April 2015)
 
-* Initial Release
+* Initial Development Begins

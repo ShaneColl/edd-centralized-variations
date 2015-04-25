@@ -3,7 +3,7 @@
  * Plugin Name:     EDD Centralized Variations
  * Plugin URI:      http://easydigitaldownloads.com
  * Description:     Allow for centralized product variation templates
- * Version:         1.0.0
+ * Version:         0.1
  * Author:          Shane Coll
  * Author URI:      http://shanecoll.com
  * Text Domain:     edd-centralized-variations
