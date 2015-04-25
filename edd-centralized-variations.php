@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:     @todo
- * Plugin URI:      @todo
- * Description:     @todo
+ * Plugin Name:     EDD Centralized Variations
+ * Plugin URI:      http://easydigitaldownloads.com
+ * Description:     Allow for centralized product variation templates
  * Version:         1.0.0
- * Author:          @todo
- * Author URI:      @todo
- * Text Domain:     plugin-name
+ * Author:          Shane Coll
+ * Author URI:      http://shanecoll.com
+ * Text Domain:     edd-centralized-variations
  *
- * @package         EDD\PluginName
- * @author          @todo
- * @copyright       Copyright (c) @todo
+ * @package         EDD\EDD Centralized Variations
+ * @author          Shane Coll
+ * @copyright       Copyright (c) 2015 Shane Coll
  *
  * IMPORTANT! Ensure that you make the following adjustments
  * before releasing your extension:
@@ -47,17 +47,17 @@
 // Exit if accessed directly
 if( !defined( 'ABSPATH' ) ) exit;
 
-if( !class_exists( 'EDD_Plugin_Name' ) ) {
+if( !class_exists( 'EDD_Centralized_Variations' ) ) {
 
     /**
-     * Main EDD_Plugin_Name class
+     * Main EDD_Centralized_Variations class
      *
      * @since       1.0.0
      */
-    class EDD_Plugin_Name {
+    class EDD_Centralized_Variations {
 
         /**
-         * @var         EDD_Plugin_Name $instance The one true EDD_Plugin_Name
+         * @var         EDD_Centralized_Variations $instance The one true EDD_Centralized_Variations
          * @since       1.0.0
          */
         private static $instance;
@@ -68,11 +68,11 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
          *
          * @access      public
          * @since       1.0.0
-         * @return      object self::$instance The one true EDD_Plugin_Name
+         * @return      object self::$instance The one true EDD_Centralized_Variations
          */
         public static function instance() {
             if( !self::$instance ) {
-                self::$instance = new EDD_Plugin_Name();
+                self::$instance = new EDD_Centralized_Variations();
                 self::$instance->setup_constants();
                 self::$instance->includes();
                 self::$instance->load_textdomain();
@@ -92,13 +92,13 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
          */
         private function setup_constants() {
             // Plugin version
-            define( 'EDD_PLUGIN_NAME_VER', '1.0.0' );
+            define( 'EDD_CENTRALIZED_VARIATIONS_VER', '1.0.0' );
 
             // Plugin path
-            define( 'EDD_PLUGIN_NAME_DIR', plugin_dir_path( __FILE__ ) );
+            define( 'EDD_CENTRALIZED_VARIATIONS_DIR', plugin_dir_path( __FILE__ ) );
 
             // Plugin URL
-            define( 'EDD_PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
+            define( 'EDD_CENTRALIZED_VARIATIONS_URL', plugin_dir_url( __FILE__ ) );
         }
 
 
@@ -111,8 +111,8 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
          */
         private function includes() {
             // Include scripts
-            require_once EDD_PLUGIN_NAME_DIR . 'includes/scripts.php';
-            require_once EDD_PLUGIN_NAME_DIR . 'includes/functions.php';
+            require_once EDD_CENTRALIZED_VARIATIONS_DIR . 'includes/scripts.php';
+            require_once EDD_CENTRALIZED_VARIATIONS_DIR . 'includes/functions.php';
 
             /**
              * @todo        The following files are not included in the boilerplate, but
@@ -120,8 +120,8 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
              *              path standardization in EDD extensions. Uncomment any that are
              *              relevant to your extension, and remove the rest.
              */
-            // require_once EDD_PLUGIN_NAME_DIR . 'includes/shortcodes.php';
-            // require_once EDD_PLUGIN_NAME_DIR . 'includes/widgets.php';
+            // require_once EDD_CENTRALIZED_VARIATIONS_DIR . 'includes/shortcodes.php';
+            // require_once EDD_CENTRALIZED_VARIATIONS_DIR . 'includes/widgets.php';
         }
 
 
@@ -154,7 +154,7 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
             // Handle licensing
             // @todo        Replace the Plugin Name and Your Name with your data
             if( class_exists( 'EDD_License' ) ) {
-                $license = new EDD_License( __FILE__, 'Plugin Name', EDD_PLUGIN_NAME_VER, 'Your Name' );
+                $license = new EDD_License( __FILE__, 'Plugin Name', EDD_CENTRALIZED_VARIATIONS_VER, 'Your Name' );
             }
         }
 
@@ -168,26 +168,26 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
          */
         public function load_textdomain() {
             // Set filter for language directory
-            $lang_dir = EDD_PLUGIN_NAME_DIR . '/languages/';
-            $lang_dir = apply_filters( 'edd_plugin_name_languages_directory', $lang_dir );
+            $lang_dir = EDD_CENTRALIZED_VARIATIONS_DIR . '/languages/';
+            $lang_dir = apply_filters( 'edd_centralized_variations_languages_directory', $lang_dir );
 
             // Traditional WordPress plugin locale filter
-            $locale = apply_filters( 'plugin_locale', get_locale(), 'edd-plugin-name' );
-            $mofile = sprintf( '%1$s-%2$s.mo', 'edd-plugin-name', $locale );
+            $locale = apply_filters( 'plugin_locale', get_locale(), 'edd-centralized-variations' );
+            $mofile = sprintf( '%1$s-%2$s.mo', 'edd-centralized-variations', $locale );
 
             // Setup paths to current locale file
             $mofile_local   = $lang_dir . $mofile;
-            $mofile_global  = WP_LANG_DIR . '/edd-plugin-name/' . $mofile;
+            $mofile_global  = WP_LANG_DIR . '/edd-centralized-variations/' . $mofile;
 
             if( file_exists( $mofile_global ) ) {
-                // Look in global /wp-content/languages/edd-plugin-name/ folder
-                load_textdomain( 'edd-plugin-name', $mofile_global );
+                // Look in global /wp-content/languages/edd-centralized-variations/ folder
+                load_textdomain( 'edd-centralized-variations', $mofile_global );
             } elseif( file_exists( $mofile_local ) ) {
-                // Look in local /wp-content/plugins/edd-plugin-name/languages/ folder
-                load_textdomain( 'edd-plugin-name', $mofile_local );
+                // Look in local /wp-content/plugins/edd-centralized-variations/languages/ folder
+                load_textdomain( 'edd-centralized-variations', $mofile_local );
             } else {
                 // Load the default language files
-                load_plugin_textdomain( 'edd-plugin-name', false, $lang_dir );
+                load_plugin_textdomain( 'edd-centralized-variations', false, $lang_dir );
             }
         }
 
@@ -203,9 +203,9 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
         public function settings( $settings ) {
             $new_settings = array(
                 array(
-                    'id'    => 'edd_plugin_name_settings',
-                    'name'  => '<strong>' . __( 'Plugin Name Settings', 'edd-plugin-name' ) . '</strong>',
-                    'desc'  => __( 'Configure Plugin Name Settings', 'edd-plugin-name' ),
+                    'id'    => 'edd_centralized_variations_settings',
+                    'name'  => '<strong>' . __( 'Plugin Name Settings', 'edd-centralized-variations' ) . '</strong>',
+                    'desc'  => __( 'Configure Plugin Name Settings', 'edd-centralized-variations' ),
                     'type'  => 'header',
                 )
             );
@@ -217,18 +217,18 @@ if( !class_exists( 'EDD_Plugin_Name' ) ) {
 
 
 /**
- * The main function responsible for returning the one true EDD_Plugin_Name
+ * The main function responsible for returning the one true EDD_Centralized_Variations
  * instance to functions everywhere
  *
  * @since       1.0.0
- * @return      \EDD_Plugin_Name The one true EDD_Plugin_Name
+ * @return      \EDD_Centralized_Variations The one true EDD_Centralized_Variations
  *
  * @todo        Inclusion of the activation code below isn't mandatory, but
  *              can prevent any number of errors, including fatal errors, in
  *              situations where your extension is activated but EDD is not
  *              present.
  */
-function EDD_Plugin_Name_load() {
+function EDD_Centralized_Variations_load() {
     if( ! class_exists( 'Easy_Digital_Downloads' ) ) {
         if( ! class_exists( 'EDD_Extension_Activation' ) ) {
             require_once 'includes/class.extension-activation.php';
@@ -236,12 +236,12 @@ function EDD_Plugin_Name_load() {
 
         $activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
         $activation = $activation->run();
-        return EDD_Plugin_Name::instance();
+        return EDD_Centralized_Variations::instance();
     } else {
-        return EDD_Plugin_Name::instance();
+        return EDD_Centralized_Variations::instance();
     }
 }
-add_action( 'plugins_loaded', 'EDD_Plugin_Name_load' );
+add_action( 'plugins_loaded', 'EDD_Centralized_Variations_load' );
 
 
 /**
@@ -253,7 +253,7 @@ add_action( 'plugins_loaded', 'EDD_Plugin_Name_load' );
  * @since       1.0.0
  * @return      void
  */
-function edd_plugin_name_activation() {
+function edd_centralized_variations_activation() {
     /* Activation functions here */
 }
-register_activation_hook( __FILE__, 'edd_plugin_name_activation' );
+register_activation_hook( __FILE__, 'edd_centralized_variations_activation' );
