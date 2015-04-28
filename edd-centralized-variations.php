@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     EDD Centralized Variations
+ * Edd Centralized Variations:     EDD Centralized Variations
  * Plugin URI:      http://easydigitaldownloads.com
  * Description:     Allow for centralized product variation templates
  * Version:         0.1
@@ -8,30 +8,30 @@
  * Author URI:      http://shanecoll.com
  * Text Domain:     edd-centralized-variations
  *
- * @package         EDD\EDD Centralized Variations
+ * @package         EDD Centralized Variations
  * @author          Shane Coll
  * @copyright       Copyright (c) 2015 Shane Coll
  *
  * IMPORTANT! Ensure that you make the following adjustments
  * before releasing your extension:
  *
- * - Replace all instances of plugin-name with the name of your plugin.
+ * - Replace all instances of edd-centralized-variations with the name of your plugin.
  *   By WordPress coding standards, the folder name, plugin file name,
  *   and text domain should all match. For the purposes of standardization,
  *   the folder name, plugin file name, and text domain are all the
- *   lowercase form of the actual plugin name, replacing spaces with
+ *   lowercase form of the actual Edd Centralized Variations, replacing spaces with
  *   hyphens.
  *
- * - Replace all instances of Plugin_Name with the name of your plugin.
+ * - Replace all instances of Edd_Centralized_Variations with the name of your plugin.
  *   For the purposes of standardization, the camel case form of the plugin
  *   name, replacing spaces with underscores, is used to define classes
  *   in your extension.
  *
- * - Replace all instances of PLUGINNAME with the name of your plugin.
+ * - Replace all instances of EDDCENTRALIZEDVARIATIONS with the name of your plugin.
  *   For the purposes of standardization, the uppercase form of the plugin
  *   name, removing spaces, is used to define plugin constants.
  *
- * - Replace all instances of Plugin Name with the actual name of your
+ * - Replace all instances of Edd Centralized Variations with the actual name of your
  *   plugin. This really doesn't need to be anywhere other than in the
  *   EDD Licensing call in the hooks method.
  *
@@ -39,7 +39,7 @@
  *   areas as necessary.
  *
  * - All functions that are not class methods MUST be prefixed with the
- *   plugin name, replacing spaces with underscores. NOT PREFIXING YOUR
+ *   Edd Centralized Variations, replacing spaces with underscores. NOT PREFIXING YOUR
  *   FUNCTIONS CAN CAUSE PLUGIN CONFLICTS!
  */
 
@@ -52,13 +52,13 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
     /**
      * Main EDD_Centralized_Variations class
      *
-     * @since       1.0.0
+     * @since       0.1
      */
     class EDD_Centralized_Variations {
 
         /**
          * @var         EDD_Centralized_Variations $instance The one true EDD_Centralized_Variations
-         * @since       1.0.0
+         * @since       0.1
          */
         private static $instance;
 
@@ -67,7 +67,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Get active instance
          *
          * @access      public
-         * @since       1.0.0
+         * @since       0.1
          * @return      object self::$instance The one true EDD_Centralized_Variations
          */
         public static function instance() {
@@ -87,12 +87,12 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Setup plugin constants
          *
          * @access      private
-         * @since       1.0.0
+         * @since       0.1
          * @return      void
          */
         private function setup_constants() {
             // Plugin version
-            define( 'EDD_CENTRALIZED_VARIATIONS_VER', '1.0.0' );
+            define( 'EDD_CENTRALIZED_VARIATIONS_VER', '0.1' );
 
             // Plugin path
             define( 'EDD_CENTRALIZED_VARIATIONS_DIR', plugin_dir_path( __FILE__ ) );
@@ -106,7 +106,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Include necessary files
          *
          * @access      private
-         * @since       1.0.0
+         * @since       0.1
          * @return      void
          */
         private function includes() {
@@ -129,7 +129,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Run action and filter hooks
          *
          * @access      private
-         * @since       1.0.0
+         * @since       0.1
          * @return      void
          *
          * @todo        The hooks listed in this section are a guideline, and
@@ -152,9 +152,9 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
             add_filter( 'edd_settings_extensions', array( $this, 'settings' ), 1 );
 
             // Handle licensing
-            // @todo        Replace the Plugin Name and Your Name with your data
+            // @todo        Replace the Edd Centralized Variations and Your Name with your data
             if( class_exists( 'EDD_License' ) ) {
-                $license = new EDD_License( __FILE__, 'Plugin Name', EDD_CENTRALIZED_VARIATIONS_VER, 'Your Name' );
+                $license = new EDD_License( __FILE__, 'Edd Centralized Variations', EDD_CENTRALIZED_VARIATIONS_VER, 'Your Name' );
             }
         }
 
@@ -163,7 +163,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Internationalization
          *
          * @access      public
-         * @since       1.0.0
+         * @since       0.1
          * @return      void
          */
         public function load_textdomain() {
@@ -196,7 +196,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
          * Add settings
          *
          * @access      public
-         * @since       1.0.0
+         * @since       0.1
          * @param       array $settings The existing EDD settings array
          * @return      array The modified EDD settings array
          */
@@ -204,8 +204,8 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
             $new_settings = array(
                 array(
                     'id'    => 'edd_centralized_variations_settings',
-                    'name'  => '<strong>' . __( 'Plugin Name Settings', 'edd-centralized-variations' ) . '</strong>',
-                    'desc'  => __( 'Configure Plugin Name Settings', 'edd-centralized-variations' ),
+                    'name'  => '<strong>' . __( 'Edd Centralized Variations Settings', 'edd-centralized-variations' ) . '</strong>',
+                    'desc'  => __( 'Configure Edd Centralized Variations Settings', 'edd-centralized-variations' ),
                     'type'  => 'header',
                 )
             );
@@ -220,7 +220,7 @@ if( !class_exists( 'EDD_Centralized_Variations' ) ) {
  * The main function responsible for returning the one true EDD_Centralized_Variations
  * instance to functions everywhere
  *
- * @since       1.0.0
+ * @since       0.1
  * @return      \EDD_Centralized_Variations The one true EDD_Centralized_Variations
  *
  * @todo        Inclusion of the activation code below isn't mandatory, but
@@ -250,7 +250,7 @@ add_action( 'plugins_loaded', 'EDD_Centralized_Variations_load' );
  * hook for compatibility, we also can't reference a function inside the plugin class
  * for the activation function. If you need an activation function, put it here.
  *
- * @since       1.0.0
+ * @since       0.1
  * @return      void
  */
 function edd_centralized_variations_activation() {

@@ -3,7 +3,7 @@
  * Activation handler
  *
  * @package     EDD\ActivationHandler
- * @since       1.0.0
+ * @since       0.1
  */
 
 
@@ -14,17 +14,17 @@ if( !defined( 'ABSPATH' ) ) exit;
 /**
  * EDD Extension Activation Handler Class
  *
- * @since       1.0.0
+ * @since       0.1
  */
 class EDD_Extension_Activation {
 
-    public $plugin_name, $plugin_path, $plugin_file, $has_edd, $edd_base;
+    public $Edd_Centralized_Variations, $plugin_path, $plugin_file, $has_edd, $edd_base;
 
     /**
      * Setup the activation class
      *
      * @access      public
-     * @since       1.0.0
+     * @since       0.1
      * @return      void
      */
     public function __construct( $plugin_path, $plugin_file ) {
@@ -40,11 +40,11 @@ class EDD_Extension_Activation {
         // Set plugin file
         $this->plugin_file = $plugin_file;
 
-        // Set plugin name
+        // Set Edd Centralized Variations
         if( isset( $plugins[$this->plugin_path . '/' . $this->plugin_file]['Name'] ) ) {
-            $this->plugin_name = str_replace( 'Easy Digital Downloads - ', '', $plugins[$this->plugin_path . '/' . $this->plugin_file]['Name'] );
+            $this->Edd_Centralized_Variations = str_replace( 'Easy Digital Downloads - ', '', $plugins[$this->plugin_path . '/' . $this->plugin_file]['Name'] );
         } else {
-            $this->plugin_name = __( 'This plugin', 'edd' );
+            $this->Edd_Centralized_Variations = __( 'This plugin', 'edd' );
         }
 
         // Is EDD installed?
@@ -62,7 +62,7 @@ class EDD_Extension_Activation {
      * Process plugin deactivation
      *
      * @access      public
-     * @since       1.0.0
+     * @since       0.1
      * @return      void
      */
     public function run() {
@@ -75,7 +75,7 @@ class EDD_Extension_Activation {
      * Display notice if EDD isn't installed
      *
      * @access      public
-     * @since       1.0.0
+     * @since       0.1
      * @return      string The notice to display
      */
     public function missing_edd_notice() {
@@ -87,6 +87,6 @@ class EDD_Extension_Activation {
             $link = '<a href="' . $url . '">' . __( 'install it', 'edd-extension-activation' ) . '</a>';
         }
         
-        echo '<div class="error"><p>' . $this->plugin_name . sprintf( __( ' requires Easy Digital Downloads! Please %s to continue!', 'edd-extension-activation' ), $link ) . '</p></div>';
+        echo '<div class="error"><p>' . $this->Edd_Centralized_Variations . sprintf( __( ' requires Easy Digital Downloads! Please %s to continue!', 'edd-extension-activation' ), $link ) . '</p></div>';
     }
 }

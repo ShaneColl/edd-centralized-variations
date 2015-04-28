@@ -2,8 +2,8 @@
 /**
  * Scripts
  *
- * @package     EDD\PluginName\Scripts
- * @since       1.0.0
+ * @package     EDD\EDDCENTRALIZEDVARIATIONS\Scripts
+ * @since       0.1
  */
 
 
